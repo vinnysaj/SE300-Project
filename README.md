@@ -6,7 +6,7 @@
 | Authors  | 
 | ------------- | 
 | Vincent Sajkowski  
-| Cameron Demario  
+| Carmen DiMario  
 | Ryle Traub  
 | Christopher Allen 
 
