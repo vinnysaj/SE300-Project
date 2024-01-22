@@ -3,6 +3,8 @@
 
 **Boundless Aircraft Maintenance** is an Aircraft fleet management software that intakes data from various sources (Pilot provided maintenance records, Public Flight ADSB data) as well as pilot-provided logbook information and presents useful maintenance information as well as *recommended* aircraft maintenance plans set in place by the end-user. 
 
+We love TypeScript!
+
 | Authors  | 
 | ------------- | 
 | Vincent Sajkowski  
