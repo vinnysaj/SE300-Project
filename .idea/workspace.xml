@@ -194,8 +194,8 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="PHPUnit.Main" />
       <item itemvalue="npm.run watch" />
+      <item itemvalue="PHPUnit.Main" />
     </list>
   </component>
   <component name="SharedIndexes">
