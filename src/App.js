@@ -3,7 +3,10 @@ import React, {useState} from 'react';
 //import ocr from './ocrScript.mjs';
 //import toBase64 from './b64Convert.js';
 import { createWorker } from 'tesseract.js';
+import Demo from './Crop';
+import UserPlanes from './userPlanes';
 global.Buffer = global.Buffer || require('buffer').Buffer
+
 
 
 
@@ -56,11 +59,11 @@ function App() {
 
   return (
     <div className="App">
-        <h1>React File Upload</h1>
-        <input type="file" onChange = {handleChange}/>
-        <button onClick = {handleSubmit}>Upload</button>
-        <h2>{textSubmitted ? text : "dont push the button before uploading file plz"}</h2>
-        <img src={file}></img>
+      <h1>React File Upload</h1>
+      <input type="file" onChange = {handleChange}/>
+      <button onClick = {handleSubmit}>Upload</button>
+      <h2>{textSubmitted ? text : "dont push the button before uploading file plz"}</h2>
+      <UserPlanes/>
     </div>
   );
 }
