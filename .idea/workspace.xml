@@ -4,37 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1cf6b36a-c8a9-4732-bb86-a865358bd0c9" name="Changes" comment="Re-added license and readme!">
-      <change afterPath="$PROJECT_DIR$/assets/bootstrap.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/react/components/Dashboard/DashboardGrid.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/react/components/Dashboard/DashboardGridAddElement.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/react/components/Dashboard/DashboardGridElement.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/react/components/Navbar/Navbar.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/react/components/Navbar/NavbarHelper.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/react/controllers/Dashboard.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/postcss.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/test.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/MainController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/dashboard.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/app.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/bootstrap.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/controllers.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/controllers.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/asset_mapper.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/importmap.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-    </list>
+    <list default="true" id="1cf6b36a-c8a9-4732-bb86-a865358bd0c9" name="Changes" comment="Plane click support" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -55,6 +25,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -208,34 +179,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;Shell Script.Symfony Server.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/vinnysaj/LocalDocuments/SE300-frontend&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;npm.run watch.executor&quot;: &quot;Run&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.idesettings.quicklists&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/vinnysaj/LocalDocuments/SE300-frontend/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Shell Script.Symfony Server.executor": "Run",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/vinnysaj/LocalDocuments/SE300-frontend/assets/react/controllers/PlaneDetails/GridComponents",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.run watch.executor": "Run",
+    "settings.editor.selected.configurable": "reference.idesettings.quicklists",
+    "ts.external.directory.path": "/Users/vinnysaj/LocalDocuments/SE300-frontend/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/assets/react/components/Dashboard" />
-      <recent name="$PROJECT_DIR$/assets/react/components/Navbar" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/assets/react/controllers" />
+      <recent name="$PROJECT_DIR$/assets/react/controllers/PlaneDetails/GridComponents" />
+      <recent name="$PROJECT_DIR$/assets/react/controllers/PlaneDetails" />
       <recent name="$PROJECT_DIR$/templates" />
+      <recent name="$PROJECT_DIR$/assets/react/controllers" />
+      <recent name="$PROJECT_DIR$/assets/react/components/Dashboard" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/assets/react/components/PlaneDetails" />
+      <recent name="$PROJECT_DIR$/assets/react/components/Dashboard" />
       <recent name="$PROJECT_DIR$/public/images" />
     </key>
   </component>
@@ -297,7 +270,8 @@
       <workItem from="1706731160580" duration="7348000" />
       <workItem from="1706889861625" duration="5746000" />
       <workItem from="1707249183549" duration="656000" />
-      <workItem from="1707326065374" duration="1430000" />
+      <workItem from="1707326065374" duration="3589000" />
+      <workItem from="1707761549232" duration="6324000" />
     </task>
     <task id="LOCAL-00001" summary="Initialized Symfony">
       <option name="closed" value="true" />
@@ -315,16 +289,54 @@
       <option name="project" value="LOCAL" />
       <updated>1706130075648</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Symfony added for frontend!">
+      <option name="closed" value="true" />
+      <created>1707341778950</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1707341778950</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Webpack and Symfony support files">
+      <option name="closed" value="true" />
+      <created>1707341795251</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1707341795251</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Plane click support">
+      <option name="closed" value="true" />
+      <created>1707771590044</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1707771590044</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Initialized Symfony" />
     <MESSAGE value="Re-added license and readme!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Re-added license and readme!" />
+    <MESSAGE value="Symfony added for frontend!" />
+    <MESSAGE value="Webpack and Symfony support files" />
+    <MESSAGE value="Plane click support" />
+    <option name="LAST_COMMIT_MESSAGE" value="Plane click support" />
   </component>
 </project>

@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}BoundlessFlight // Dashboard{% endblock %}</title>
+        <title>{% block title %}BoundlessFlight // {{ planeID }}{% endblock %}</title>
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
@@ -12,7 +12,7 @@
     </head>
     <body>
         {% block body %}
-            <div {{ react_component('Dashboard/Dashboard') }}></div>
+            <div {{ react_component('PlaneDetails/PlaneDetails', {'planeID': planeID}) }}></div>
         {% endblock %}
     </body>
 </html>

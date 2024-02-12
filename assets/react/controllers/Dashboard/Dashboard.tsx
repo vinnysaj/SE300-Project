@@ -1,17 +1,17 @@
 import React, {useState} from 'react';
-import Navbar from "../components/Navbar/Navbar";
-import DashboardGrid from "../components/Dashboard/DashboardGrid";
-import DashboardGridElement from "../components/Dashboard/DashboardGridElement";
-import NavbarHelper from "../components/Navbar/NavbarHelper";
-import DashboardGridAddElement from "../components/Dashboard/DashboardGridAddElement";
+import Navbar from "../Navbar/Navbar";
+import DashboardGrid from "../Dashboard/DashboardGrid";
+import DashboardGridElement from "../Dashboard/DashboardGridElement";
+import NavbarHelper from "../Navbar/NavbarHelper";
+import DashboardGridAddElement from "../Dashboard/DashboardGridAddElement";
 
 
 
-export default function (properties: any) {
+const Dashboard: React.FC = () => {
     const [planeGridElements, setPlaneGridElements] = useState(null)
     React.useEffect(() => {
         const gridElements = [
-            <DashboardGridElement key={0} planeImgPath={"images/test.jpg"} planeName={"Plane 1"}></DashboardGridElement>,
+            <DashboardGridElement key={0} planeImgPath={"/images/test.jpg"} planeName={"Plane 1"} planeID={"testID"}></DashboardGridElement>,
             <DashboardGridAddElement key={1} addText="Add new" />
         ]
         setPlaneGridElements(gridElements)
@@ -27,3 +27,5 @@ export default function (properties: any) {
         </div>
     );
 };
+
+export default Dashboard;
