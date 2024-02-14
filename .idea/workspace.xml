@@ -5,7 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1cf6b36a-c8a9-4732-bb86-a865358bd0c9" name="Changes" comment="Plane click support">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/react/controllers/Home/Home.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/noise.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/react/controllers/Navbar/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/react/controllers/Navbar/Navbar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/MainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MainController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/dashboard.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/plane_info.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/plane_info.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,7 +38,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -188,7 +198,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Shell Script.Symfony Server.executor": "Run",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/vinnysaj/LocalDocuments/SE300-frontend/assets/react/controllers/PlaneDetails/GridComponents",
+    "last_opened_file_path": "/Users/vinnysaj/LocalDocuments/SE300-frontend/assets/react/controllers/Home",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -202,16 +212,16 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/assets/react/controllers/Home" />
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/assets/react/controllers/PlaneDetails/GridComponents" />
       <recent name="$PROJECT_DIR$/assets/react/controllers/PlaneDetails" />
       <recent name="$PROJECT_DIR$/templates" />
-      <recent name="$PROJECT_DIR$/assets/react/controllers" />
-      <recent name="$PROJECT_DIR$/assets/react/components/Dashboard" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/images" />
       <recent name="$PROJECT_DIR$/assets/react/components/PlaneDetails" />
       <recent name="$PROJECT_DIR$/assets/react/components/Dashboard" />
-      <recent name="$PROJECT_DIR$/public/images" />
     </key>
   </component>
   <component name="RunManager" selected="npm.run watch">
@@ -273,7 +283,8 @@
       <workItem from="1706889861625" duration="5746000" />
       <workItem from="1707249183549" duration="656000" />
       <workItem from="1707326065374" duration="3589000" />
-      <workItem from="1707761549232" duration="6543000" />
+      <workItem from="1707761549232" duration="8178000" />
+      <workItem from="1707934524008" duration="5674000" />
     </task>
     <task id="LOCAL-00001" summary="Initialized Symfony">
       <option name="closed" value="true" />

@@ -33,6 +33,9 @@
         "axios": "^1.6.7",
         "prop-types": "^15.8.1",
         "react": "^18.2.0",
-        "react-dom": "^18.2.0"
+        "react-dom": "^18.2.0",
+        "react-intersection-observer": "^9.8.0",
+        "three": "^0.161.0",
+        "vanta": "^0.5.24"
     }
 }
