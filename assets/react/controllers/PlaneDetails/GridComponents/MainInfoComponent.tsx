@@ -5,9 +5,14 @@ import {PlaneGridProps} from "../PlaneDetails";
 const PlaneDetailGrid: React.FC<PlaneGridProps> = ({planeDetails}) => {
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
-
+    const [isEditing, setIsEditing] = useState(false);
     return (
         <div className="w-1/2 rounded-2xl bg-gray-200 p-8 shadow-xl">
+            <div className="flex flex-row-reverse">
+                <button>
+                    EDIT
+                </button>
+            </div>
             <div className="flex flex-col flex-1">
                 <div>
                     <img src={planeDetails.planeCoverImgPath} alt="Plane Hero Image"

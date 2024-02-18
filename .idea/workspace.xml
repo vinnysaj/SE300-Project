@@ -5,18 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1cf6b36a-c8a9-4732-bb86-a865358bd0c9" name="Changes" comment="Plane click support">
-      <change afterPath="$PROJECT_DIR$/assets/react/controllers/Home/Home.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/noise.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/react/controllers/OCR/Cropper.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/react/controllers/OCR/LogSpreadsheet.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/react/controllers/OCR/OCR.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/react/controllers/OCR/canvasPreview.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/react/controllers/OCR/useDebounceEffect.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/react/controllers/PlaneDetails/GridComponents/MainInfoEditComponent.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/ocr.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/react/controllers/Navbar/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/react/controllers/Navbar/Navbar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/react/controllers/PlaneDetails/GridComponents/MainInfoComponent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/react/controllers/PlaneDetails/GridComponents/MainInfoComponent.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/react/controllers/PlaneDetails/PlaneDetailGrid.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/react/controllers/PlaneDetails/PlaneDetailGrid.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/MainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MainController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dashboard.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/plane_info.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/plane_info.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,10 +40,32 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "luccadimario"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="34e07fbc-581f-4642-b916-3b42deb3a945" />
+        <option name="url" value="https://github.com/vinnysaj/SE300-frontend.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="PackageJsonUpdateNotifier">
+    <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 8.2">
     <include_path>
@@ -197,8 +222,8 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Shell Script.Symfony Server.executor": "Run",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/vinnysaj/LocalDocuments/SE300-frontend/assets/react/controllers/Home",
+    "git-widget-placeholder": "Lucca-Development",
+    "last_opened_file_path": "/Users/luccadimario/WebstormProjects/SE300-frontend/assets/react/controllers/Ocr",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -206,17 +231,17 @@
     "nodejs_package_manager_path": "npm",
     "npm.run watch.executor": "Run",
     "settings.editor.selected.configurable": "reference.idesettings.quicklists",
-    "ts.external.directory.path": "/Users/vinnysaj/LocalDocuments/SE300-frontend/node_modules/typescript/lib",
+    "ts.external.directory.path": "/Users/luccadimario/WebstormProjects/SE300-frontend/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/assets/react/controllers/Home" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/assets/react/controllers/PlaneDetails/GridComponents" />
-      <recent name="$PROJECT_DIR$/assets/react/controllers/PlaneDetails" />
+      <recent name="$PROJECT_DIR$/assets/react/controllers/Ocr" />
       <recent name="$PROJECT_DIR$/templates" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/assets/react/controllers/Home" />
+      <recent name="$PROJECT_DIR$/assets/react/controllers/PlaneDetails/GridComponents" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/public/images" />
@@ -224,7 +249,7 @@
       <recent name="$PROJECT_DIR$/assets/react/components/Dashboard" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.run watch">
+  <component name="RunManager" selected="Shell Script.Symfony Server">
     <configuration name="Main" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml.dist" scope="XML" use_alternative_configuration_file="true" />
       <method v="2" />
@@ -256,7 +281,6 @@
     </configuration>
     <list>
       <item itemvalue="npm.run watch" />
-      <item itemvalue="PHPUnit.Main" />
       <item itemvalue="Shell Script.Symfony Server" />
     </list>
   </component>

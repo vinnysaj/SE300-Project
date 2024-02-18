@@ -26,6 +26,10 @@ class MainController extends AbstractController
     public function dashboard(Request $request): Response {
         return $this->render('dashboard.html.twig');
     }
+    #[Route('ocr', 'ocr')]
+    public function ocr(Request $request): Response {
+        return $this->render('ocr.html.twig');
+    }
 
     #[Route('dashboard/plane/{planeID}', 'planeInfo')]
     public function plane_info(Request $request, string $planeID): Response {
