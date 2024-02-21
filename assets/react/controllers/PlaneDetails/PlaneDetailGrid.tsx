@@ -2,6 +2,7 @@ import React, {ReactElement, useEffect, useState} from 'react';
 import axios from "axios";
 import {PlaneGridProps} from "./PlaneDetails";
 import MainInfoComponent from "./GridComponents/MainInfoComponent";
+import MainInfoEditComponent from "./GridComponents/MainInfoEditComponent";
 
 const PlaneDetailGrid: React.FC<PlaneGridProps> = ({planeDetails}) => {
     const [isLoading, setIsLoading] = useState(true);
@@ -37,7 +38,7 @@ const PlaneDetailGrid: React.FC<PlaneGridProps> = ({planeDetails}) => {
     }
 
     return (
-        <MainInfoComponent planeDetails={planeDetails} />
+        <MainInfoEditComponent planeDetails={planeDetails} />
     );
 };
 
