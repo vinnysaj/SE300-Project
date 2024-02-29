@@ -4,22 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1cf6b36a-c8a9-4732-bb86-a865358bd0c9" name="Changes" comment="Plane click support">
-      <change afterPath="$PROJECT_DIR$/assets/react/controllers/OCR/Cropper.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/react/controllers/OCR/LogSpreadsheet.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/react/controllers/OCR/OCR.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/react/controllers/OCR/canvasPreview.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/react/controllers/OCR/useDebounceEffect.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/react/controllers/PlaneDetails/GridComponents/MainInfoEditComponent.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/ocr.html.twig" afterDir="false" />
+    <list default="true" id="1cf6b36a-c8a9-4732-bb86-a865358bd0c9" name="Changes" comment="Added Plane Editing Support! No backend coms yet!">
+      <change afterPath="$PROJECT_DIR$/assets/react/controllers/OCR/Queue.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/react/controllers/Navbar/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/react/controllers/Navbar/Navbar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/react/controllers/PlaneDetails/GridComponents/MainInfoComponent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/react/controllers/PlaneDetails/GridComponents/MainInfoComponent.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/react/controllers/PlaneDetails/PlaneDetailGrid.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/react/controllers/PlaneDetails/PlaneDetailGrid.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/react/controllers/OCR/Cropper.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/react/controllers/OCR/Cropper.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/react/controllers/OCR/LogSpreadsheet.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/react/controllers/OCR/LogSpreadsheet.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/react/controllers/OCR/OCR.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/react/controllers/OCR/OCR.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/MainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MainController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -223,7 +215,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Shell Script.Symfony Server.executor": "Run",
     "git-widget-placeholder": "Lucca-Development",
-    "last_opened_file_path": "/Users/luccadimario/WebstormProjects/SE300-frontend/assets/react/controllers/Ocr",
+    "last_opened_file_path": "/Users/luccadimario/WebstormProjects/SE300-frontend/assets/react/controllers/MaintenanceDetails",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -237,11 +229,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/assets/react/controllers/MaintenanceDetails" />
+      <recent name="$PROJECT_DIR$/assets/react/controllers" />
       <recent name="$PROJECT_DIR$/assets/react/controllers/Ocr" />
       <recent name="$PROJECT_DIR$/templates" />
       <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/assets/react/controllers/Home" />
-      <recent name="$PROJECT_DIR$/assets/react/controllers/PlaneDetails/GridComponents" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/public/images" />
@@ -350,7 +342,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707771590044</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Added Plane Editing Support! No backend coms yet!">
+      <option name="closed" value="true" />
+      <created>1708292297821</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1708292297821</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -374,6 +374,7 @@
     <MESSAGE value="Symfony added for frontend!" />
     <MESSAGE value="Webpack and Symfony support files" />
     <MESSAGE value="Plane click support" />
-    <option name="LAST_COMMIT_MESSAGE" value="Plane click support" />
+    <MESSAGE value="Added Plane Editing Support! No backend coms yet!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Plane Editing Support! No backend coms yet!" />
   </component>
 </project>
