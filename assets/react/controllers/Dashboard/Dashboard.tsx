@@ -11,7 +11,7 @@ const Dashboard: React.FC = () => {
     const [planeGridElements, setPlaneGridElements] = useState(null)
     React.useEffect(() => {
         const gridElements = [
-            <DashboardGridElement key={0} planeImgPath={"/images/test.jpg"} planeName={"Plane 1"} planeID={"testID"}></DashboardGridElement>,
+            <DashboardGridElement key={0} planeImgPath={"/images/test.jpg"} planeName={"My Plane"} planeID={"testID"}></DashboardGridElement>,
             <DashboardGridAddElement key={1} addText="Add new" />
         ]
         setPlaneGridElements(gridElements)
@@ -22,7 +22,7 @@ const Dashboard: React.FC = () => {
             <Navbar pageTitle={"Dashboard"} />
             <NavbarHelper />
             <div className="px-16 mt-8">
-                <DashboardGrid gridElements={planeGridElements} gridTitle="Your Tracked Planes" />
+                <DashboardGrid gridElements={planeGridElements} gridTitle="Your Planes" />
             </div>
         </div>
     );

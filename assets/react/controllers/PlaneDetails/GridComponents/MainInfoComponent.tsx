@@ -13,7 +13,7 @@ const PlaneDetailGrid: React.FC<PlaneGridProps> = ({planeDetails}) => {
                     EDIT
                 </button>
             </div>
-            <div className="flex flex-col flex-1">
+            <div className="flex flex-col flex-1 -mt-6">
                 <div>
                     <img src={planeDetails.planeCoverImgPath} alt="Plane Hero Image"
                          className="w-64 h-64 rounded-xl drop-shadow-lg shadow-lg"/>

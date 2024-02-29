@@ -2,10 +2,15 @@ import React, {ReactElement} from 'react';
 
 export default function (properties: DashboardGridElementProps):ReactElement {
     return (
-        <div className="inline-block w-min h-min mx-auto">
-            <a className="flex flex-col items-center transition-transform hover:scale-110 ease-in-out h-max w-max cursor-pointer" href={"dashboard/plane/" + properties.planeID}>
-                <img src={properties.planeImgPath} className="w-32 h-32 rounded-xl drop-shadow-lg shadow-lg"/>
-                <div className="text-center text-sm mt-2 drop-shadow-xl">{properties.planeName}</div>
+        <div className="col-span-1 w-full flex-grow">
+            <a className="bg-gray-50 px-1 pt-1 pb-1 drop-shadow-lg shadow-lg rounded-2xl flex flex-col items-center transition-transform hover:scale-102 duration-300 ease-in-out cursor-pointer" href={"dashboard/plane/" + properties.planeID}>
+                <div className={"h-32 w-full"}>
+                    <img src={properties.planeImgPath}
+                         className="rounded-xl w-full h-32 object-cover"
+                         alt={"Plane hero image"}/>
+                </div>
+
+                <div className="text-center text-lg mt-1 drop-shadow-xl">{properties.planeName}</div>
             </a>
         </div>
     );
