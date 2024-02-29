@@ -2,6 +2,15 @@ import React, {ReactElement, useLayoutEffect, useState} from 'react';
 
 export default function (properties: NavbarProps):ReactElement {
     const [homeEnabled, setHomeEnabled] = React.useState(true);
+    const [isHovered, setIsHovered] = useState(false);
+
+    const handleMouseEnter = () => {
+        setIsHovered(true);
+    };
+
+    const handleMouseLeave = () => {
+        setIsHovered(false);
+    };
 
     useLayoutEffect(() => {
         if (window.location.pathname === "/" || window.location.pathname === "/home") {
@@ -9,24 +18,52 @@ export default function (properties: NavbarProps):ReactElement {
         }
     }, []);
 
+    const renderRoutes = () => {
+        return routes.map((route, index) => {
+            const isCurrentRoute = (route.path === '/home' && (location.pathname === '/home' || location.pathname === '/')) ||  route.path === location.pathname;
+            if (isCurrentRoute) {
+                return <span key={route.path} className={`${index !== 0 ? 'ml-4' : ''} opacity-70 cursor-default`}>{route.title}</span>;
+            }
+            return <a key={route.path} href={route.path} className={`underline ${index !== 0 ? 'ml-4' : ''}`}>{route.title}</a>;
+        });
+    }
+
+    const routes = [
+        { title: 'Home', path: '/home' },
+        { title: 'About', path: '/about' },
+        { title: 'Dashboard', path: '/dashboard' },
+        { title: 'Login', path: '/auth/login' },
+        { title: 'Sign Up', path: '/auth/sign-up' }
+    ];
+
     return (
-        <div className="w-full h-12 rounded-b-lg fixed bg-black backdrop-blur-xl opacity-80 z-50">
-            <div className="flex items-center justify-between h-full">
-                <div className="ml-4">
-                    <div className="text-xl text-gray-200">
+        <div className="w-full h-12 rounded-b-lg fixed bg-black backdrop-blur-xl opacity-80 z-50 text-xl text-white">
+            <div className="flex items-center h-full">
+                <div className="ml-4 flex-1" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+                    <div className="text-gray-200">
                         {homeEnabled ? (
-                            <a href="/" className={homeEnabled ? "text-white" : "disabled"}>
-                                <span className="font-bold text-white">BoundlessFlight</span>
+                            <a href="/">
+                                <span className="font-bold">BoundlessFlight</span>
                             </a>
-                        ): (
-                            <span className="font-bold text-white">BoundlessFlight</span>
+                        ) : (
+                            <span className="font-bold">BoundlessFlight</span>
                         )}
                         <span className="mx-2">//</span>
                         <span>{properties.pageTitle}</span>
+                        <span className={`slide-hover ${isHovered ? "hovered" : ""}`}>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="-mt-0.5 w-6 h-6 inline-block">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5"/>
+                            </svg>
+                        </span>
+
+                        <span className={`ml-4 font-light slide-fade-hover ${isHovered ? "hovered" : ""}`}>
+                            {renderRoutes()}
+                        </span>
+
                     </div>
                 </div>
                 <div className="mr-4">
-                    <div className="text-xl text-white">User</div>
+                    <div>User</div>
                 </div>
             </div>
         </div>

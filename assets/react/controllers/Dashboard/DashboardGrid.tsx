@@ -16,7 +16,7 @@ const DashboardGrid: React.FC<DashboardGridProps> = ({gridTitle, gridElements}) 
     const loadDashboard = async() => {
         setIsLoading(true);
         try {
-            const response = await axios.post("http://10.6.0.1:6969/user/get/assigned/Aircraft", {
+            const response = await axios.post("http://10.6.0.1:7000/user/get/assigned/Aircraft", {
                 user_id: "106128017282493053284"
             });
             console.log(response)
