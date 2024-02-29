@@ -25,3 +25,5 @@ yarn-error.log
 ###< symfony/webpack-encore-bundle ###
 .env
 .DS_Store
+.idea/
+.idea/workspace.xml
