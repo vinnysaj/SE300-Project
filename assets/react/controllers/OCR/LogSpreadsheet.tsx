@@ -29,13 +29,12 @@ export default function LogSpreadsheet() {
         console.log(rowData);
     }
     return(
-        <div className="flex-1 ag-theme-quartz" style={{ height: screen.height }}>
+        <div className="flex-1 ag-theme-quartz max-h-max overflow-hidden" style={{ height: screen.height }}>
             <AgGridReact
                 columnDefs={colDefs}
                 rowData={rowData}
                 defaultColDef={defaultColDef}
                 onCellValueChanged={printData}
-                pagination={true}
             />
         </div>
     );

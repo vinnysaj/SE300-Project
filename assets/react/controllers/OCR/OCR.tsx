@@ -6,11 +6,12 @@ import Cropper from "./Cropper";
 import LogSpreadsheet from "./LogSpreadsheet";
 
 
+
 function OCR(){
 
 
     return (
-        <div className={"flex"}>
+        <div className={"flex overflow-hidden"}>
             <Cropper/>
             <LogSpreadsheet/>
         </div>
