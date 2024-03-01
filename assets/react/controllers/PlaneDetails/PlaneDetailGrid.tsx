@@ -1,10 +1,10 @@
 import React, {ReactElement, useEffect, useState} from 'react';
 import axios from "axios";
-import {PlaneGridProps} from "./PlaneDetails";
+import {PlaneDetailsProps} from "./PlaneDetails";
 import MainInfoComponent from "./GridComponents/MainInfoComponent";
 import MainInfoEditComponent from "./GridComponents/MainInfoEditComponent";
 
-const PlaneDetailGrid: React.FC<PlaneGridProps> = ({planeDetails}) => {
+const PlaneDetailGrid: React.FC<PlaneDetailsProps> = ({planeDetails}) => {
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
@@ -18,7 +18,7 @@ const PlaneDetailGrid: React.FC<PlaneGridProps> = ({planeDetails}) => {
     const loadDashboard = async() => {
         setIsLoading(true);
         try {
-            const response = await axios.post("http://10.6.0.1:6969/user/get/assigned/Aircraft", {
+            const response = await axios.post("https://10.6.0.1:7000/user/get/assigned/Aircraft", {
                 user_id: "106128017282493053284"
             });
             console.log(response)
@@ -38,7 +38,7 @@ const PlaneDetailGrid: React.FC<PlaneGridProps> = ({planeDetails}) => {
     }
 
     return (
-        <MainInfoEditComponent planeDetails={planeDetails} />
+        <MainInfoComponent planeDetails={planeDetails} editingStart={null}/>
     );
 };
 
