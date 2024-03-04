@@ -1,17 +1,29 @@
 import React, {ChangeEventHandler, ReactElement, useEffect, useState} from 'react';
 import axios from "axios";
-import {PlaneDetailsProps} from "../PlaneDetails";
+import {PlaneGridProps} from "../PlaneDetails";
 
-const PlaneDetailGrid: React.FC<PlaneDetailsProps> = ({planeDetails}) => {
+const PlaneDetailGrid: React.FC<PlaneGridProps> = ({planeDetails,extendedPlaneDetails}) => {
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
     const [isEditing, setIsEditing] = useState(false);
-    const [planeName, setPlaneName] = useState(planeDetails.name);
-    const [planeTailNumber, setPlaneTailNumber] = useState(planeDetails.tailNumber);
-    const [planeModel, setPlaneModel] = useState(planeDetails.model);
+    const [planeName, setPlaneName] = useState(planeDetails.planeName);
+    const [planeTailNumber, setPlaneTailNumber] = useState(planeDetails.planeTailNumber);
+    const [planeModel, setPlaneModel] = useState(planeDetails.planeModel);
+    const userToken = "1234"
     function switchIsEditing() {
         if(isEditing == true){
-            console.log("Pushing updated info to database"); //post to database
+            axios.post('https://10.6.0.1:7000/api/user/update/assignedaircraft', {
+                token: userToken,
+                planes: {
+                    //JSON data of all planes
+                }
+            })
+                .then(function (response) {
+                    console.log(response.data);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
         }
         setIsEditing(!isEditing);
     };
@@ -33,7 +45,7 @@ const PlaneDetailGrid: React.FC<PlaneDetailsProps> = ({planeDetails}) => {
                         </div>
                         <div className="flex flex-col flex-1">
                             <div>
-                                <img src={planeDetails.coverImgPath} alt="Plane Hero Image"
+                                <img src={planeDetails.planeCoverImgPath} alt="Plane Hero Image"
                                      className="w-64 h-64 rounded-xl drop-shadow-lg shadow-lg"/>
                             </div>
                             <div>
@@ -88,7 +100,7 @@ const PlaneDetailGrid: React.FC<PlaneDetailsProps> = ({planeDetails}) => {
                     </div>
                     <div className="flex flex-col flex-1">
                         <div>
-                            <img src={planeDetails.coverImgPath} alt="Plane Hero Image"
+                            <img src={planeDetails.planeCoverImgPath} alt="Plane Hero Image"
                                  className="w-64 h-64 rounded-xl drop-shadow-lg shadow-lg"/>
                         </div>
                         <div>
