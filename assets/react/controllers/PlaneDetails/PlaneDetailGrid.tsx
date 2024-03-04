@@ -19,7 +19,8 @@ const PlaneDetailGrid: React.FC<PlaneDetailsProps> = ({planeDetails}) => {
         setIsLoading(true);
         try {
             const response = await axios.post("https://10.6.0.1:7000/user/get/assigned/Aircraft", {
-                user_id: "106128017282493053284"
+                user_id: "106128017282493053284",
+                token: "12345"
             });
             console.log(response)
             /*const jsonData:UserData = response.data;

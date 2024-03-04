@@ -15,6 +15,16 @@ const MainInfoComponent: React.FC<PlaneDetailsProps> = ({planeDetails}) => {
 
     function handleEditingDone() {
         setIsEditing(false);
+        axios.post('/https:10.6.0.1:7000/update/assigned/aircraft', {
+            token: "Will be pulled from session",
+            userID: "Will be pulled from session",
+        })
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
     }
 
     return (

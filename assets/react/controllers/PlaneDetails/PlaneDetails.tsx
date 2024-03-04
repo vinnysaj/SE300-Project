@@ -9,6 +9,14 @@ const PlaneDetails: React.FC = () => {
         const fetchPlaneDetails = async () => {
             // Simulated fetch operation
             const simulatedData: PlaneDetails = {
+                active: false,
+                hours: 0,
+                icao: "Cant commit what I said",
+                owner_id: undefined,
+                plane_data: undefined,
+                reg: "1234",
+                regowner: "Lucca",
+                serial: "293840022",
                 coverImgPath: '/images/test.jpg',
                 id: '12345',
                 name: 'My Plane',
@@ -48,6 +56,14 @@ export interface PlaneDetails {
     documentCount: number,
     lastLogDate?: string,
     firstFlightDate?: string,
+    reg: string,
+    active: boolean,
+    serial: string,
+    icao: string,
+    regowner: string,
+    hours: number,
+    plane_data: JSON,
+    owner_id: JSON,
 }
 
 export interface PlaneEditProps {

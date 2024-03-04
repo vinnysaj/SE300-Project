@@ -7,7 +7,6 @@ const MainInfoComponentEdit: React.FC<PlaneEditProps> = ({planeDetails: initialP
     const [planeDetails, setPlaneDetails] = React.useState(initialPlaneDetails);
 
     function saveEdits() {
-        console.log("Pushing updated info to database (... eventually!)"); //post to database
         editingDone(planeDetails);
     }
 
