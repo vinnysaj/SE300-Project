@@ -2,16 +2,28 @@ import React, {ChangeEventHandler, ReactElement, useEffect, useState} from 'reac
 import axios from "axios";
 import {PlaneGridProps} from "../PlaneDetails";
 
-const PlaneDetailGrid: React.FC<PlaneGridProps> = ({planeDetails}) => {
+const PlaneDetailGrid: React.FC<PlaneGridProps> = ({planeDetails,extendedPlaneDetails}) => {
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
     const [isEditing, setIsEditing] = useState(false);
     const [planeName, setPlaneName] = useState(planeDetails.planeName);
     const [planeTailNumber, setPlaneTailNumber] = useState(planeDetails.planeTailNumber);
     const [planeModel, setPlaneModel] = useState(planeDetails.planeModel);
+    const userToken = "1234"
     function switchIsEditing() {
         if(isEditing == true){
-            console.log("Pushing updated info to database"); //post to database
+            axios.post('https://10.6.0.1:7000/api/user/update/assignedaircraft', {
+                token: userToken,
+                planes: {
+                    //JSON data of all planes
+                }
+            })
+                .then(function (response) {
+                    console.log(response.data);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
         }
         setIsEditing(!isEditing);
     };
