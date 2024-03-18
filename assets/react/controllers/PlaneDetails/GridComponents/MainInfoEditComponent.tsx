@@ -1,8 +1,8 @@
-import React, {ChangeEventHandler, ReactElement, useEffect, useState} from 'react';
+/*import React, {ChangeEventHandler, ReactElement, useEffect, useState} from 'react';
 import axios from "axios";
-import {PlaneGridProps} from "../PlaneDetails";
+import {PlaneDetailsProps} from "../PlaneDetails";
 
-const PlaneDetailGrid: React.FC<PlaneGridProps> = ({planeDetails,extendedPlaneDetails}) => {
+const PlaneDetailGrid: React.FC<PlaneDetailsProps> = ({planeDetails,extendedPlaneDetails}) => {
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
     const [isEditing, setIsEditing] = useState(false);
@@ -129,4 +129,4 @@ const PlaneDetailGrid: React.FC<PlaneGridProps> = ({planeDetails,extendedPlaneDe
                 );
             };
 
-            export default PlaneDetailGrid;
+            export default PlaneDetailGrid;*/

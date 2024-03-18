@@ -31,6 +31,8 @@
         "build": "encore production --progress"
     },
     "dependencies": {
+        "@headlessui/react": "^1.7.18",
+        "@heroicons/react": "^2.1.1",
         "@material-tailwind/react": "^2.1.9",
         "@symfony/stimulus-bridge": "^3.2.2",
         "ag-grid-react": "^31.0.3",
