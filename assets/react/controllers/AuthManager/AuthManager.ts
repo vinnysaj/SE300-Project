@@ -1,17 +1,25 @@
 import axios from "axios";
+import {LoginResponse} from "./SignInHandler";
 
-export function storeToken(token:string) {
-    console.log("Storing a new token!");
+export function storeUser(token:string, userData:LoginResponse) {
+    console.log("Storing user data!");
     window.localStorage.setItem('token', token);
+    let json = JSON.stringify(userData)
+    window.localStorage.setItem('userData', json);
 }
 
 export function getToken() {
     return window.localStorage.getItem('token');
 }
 
-export function clearToken() {
-    console.log("Removing token from storage");
+export function getUserData():any {
+    return window.localStorage.getItem('userData');
+}
+
+export function clearUser() {
+    console.log("Removing user data from storage");
     window.localStorage.removeItem('token');
+    window.localStorage.removeItem('userData');
 }
 
 export function clearStorage() {
@@ -19,7 +27,7 @@ export function clearStorage() {
     window.localStorage.clear();
 }
 
-export async function makeAuthCallToken(url: string, token: string, method: string, data: any) {
+export async function makeAuthCallToken(url: string, token: string, method: string, data?: any) {
     return axios({
         method: method,
         url: url,
@@ -31,7 +39,7 @@ export async function makeAuthCallToken(url: string, token: string, method: stri
     });
 }
 
-export async function makeAuthCall(url: string, method: string, data: any) {
+export async function makeAuthCall(url: string, method: string, data?: any) {
     let response = await axios({
         method: method,
         url: url,
@@ -42,7 +50,7 @@ export async function makeAuthCall(url: string, method: string, data: any) {
         data: data
     })
     if (response.status === 401 || response.status === 403) {
-        clearToken();
+        clearUser();
         console.log("Authorization token has expired!!");
         //window.location.href = "https://auth.boundlessflight.net";
         return null;

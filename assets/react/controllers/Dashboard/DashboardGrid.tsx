@@ -1,5 +1,6 @@
 import React, {ReactElement, useEffect, useState} from 'react';
 import axios from "axios";
+import {makeAuthCall} from "../AuthManager/AuthManager";
 
 const DashboardGrid: React.FC<DashboardGridProps> = ({gridTitle, gridElements}) => {
     const [isLoading, setIsLoading] = useState(true);
@@ -16,17 +17,10 @@ const DashboardGrid: React.FC<DashboardGridProps> = ({gridTitle, gridElements}) 
     const loadDashboard = async() => {
         setIsLoading(true);
         try {
-            const response = await axios.post("http://10.6.0.1:7000/user/get/assigned/Aircraft", {
-                user_id: "106128017282493053284"
-            });
-            console.log(response)
-            /*const jsonData:UserData = response.data;
+            let url = "https://api.boundlessflight.net/api/user/get/assignedaircraft";
+            let response = makeAuthCall(url, "POST", null);
 
-            if (!isValidUserData(jsonData)) {
-                throw new Error('Invalid data received')
-            }
-            setError(null);
-            setUserData(jsonData)*/
+            console.log(response);
         } catch (error) {
             setError(error);
             //setUserData(null);
