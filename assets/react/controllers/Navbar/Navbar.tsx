@@ -32,8 +32,8 @@ export default function (properties: NavbarProps):ReactElement {
         { title: 'Home', path: '/home' },
         { title: 'About', path: '/about' },
         { title: 'Dashboard', path: '/dashboard' },
-        { title: 'Login', path: '/auth/login' },
-        { title: 'Sign Up', path: '/auth/sign-up' }
+        { title: 'Login', path: 'https://auth.boundlessflight.net' },
+        { title: 'Sign Up', path: 'https://auth.boundlessflight.net' }
     ];
 
     return (
