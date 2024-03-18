@@ -27,18 +27,6 @@ export function clearStorage() {
     window.localStorage.clear();
 }
 
-export async function makeAuthCallToken(url: string, token: string, method: string, data?: any) {
-    return axios({
-        method: method,
-        url: url,
-        headers: {
-            Authorization: `Bearer ${token}`,
-            'Content-Type': 'application/json'
-        },
-        data: data
-    });
-}
-
 export async function makeAuthCall(url: string, method: string, data?: any) {
     let response = await axios({
         method: method,

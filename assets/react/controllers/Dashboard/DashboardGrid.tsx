@@ -18,7 +18,7 @@ const DashboardGrid: React.FC<DashboardGridProps> = ({gridTitle, gridElements}) 
         setIsLoading(true);
         try {
             let url = "https://api.boundlessflight.net/api/user/get/assignedaircraft";
-            let response = makeAuthCall(url, "POST", null);
+            let response = makeAuthCall(url, "GET", null);
 
             console.log(response);
         } catch (error) {
