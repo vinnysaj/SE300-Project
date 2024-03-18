@@ -5,8 +5,6 @@ import DashboardGridElement from "../Dashboard/DashboardGridElement";
 import NavbarHelper from "../Navbar/NavbarHelper";
 import DashboardGridAddElement from "../Dashboard/DashboardGridAddElement";
 
-
-
 const Dashboard: React.FC = () => {
     const [planeGridElements, setPlaneGridElements] = useState(null)
     React.useEffect(() => {
