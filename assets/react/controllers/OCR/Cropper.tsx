@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react'
+import Queue from "./Queue";
 
 import ReactCrop, {
     centerCrop,
@@ -44,6 +45,7 @@ export default function Cropper() {
     const [scale, setScale] = useState(1)
     const [rotate, setRotate] = useState(0)
     const [aspect, setAspect] = useState<number | undefined>(undefined)
+    const [queueItems, setQueueItems] = useState<string[] | null>(["Item1", "Item2", "Item3"])
 
     function onSelectFile(e: React.ChangeEvent<HTMLInputElement>) {
         if (e.target.files && e.target.files.length > 0) {
@@ -62,6 +64,7 @@ export default function Cropper() {
             setCrop(centerAspectCrop(width, height, aspect))
         }
     }
+
 
     async function onSendCropClick() {
         const image = imgRef.current
@@ -129,7 +132,8 @@ export default function Cropper() {
     )
 
     return (
-        <div className="flex-1">
+        <>
+        <div className="flex-1 h-max overflow-hidden">
             <div className="Crop-Controls">
                 <input type="file" accept="image/*" onChange={onSelectFile} />
             </div>
@@ -182,6 +186,9 @@ export default function Cropper() {
                     </div>
                 </>
             )}
+
         </div>
+        <Queue listItems={queueItems}/>
+    </>
     )
 }

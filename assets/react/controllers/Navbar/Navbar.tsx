@@ -1,4 +1,5 @@
 import React, {ReactElement, useLayoutEffect, useState} from 'react';
+import ProfileMenu from './ProfileMenu';
 
 export default function (properties: NavbarProps):ReactElement {
     const [homeEnabled, setHomeEnabled] = React.useState(true);
@@ -63,7 +64,7 @@ export default function (properties: NavbarProps):ReactElement {
                     </div>
                 </div>
                 <div className="mr-4">
-                    <div>User</div>
+                    <ProfileMenu dropdownName={"User"}/>
                 </div>
             </div>
         </div>
