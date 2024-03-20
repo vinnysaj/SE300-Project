@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1cf6b36a-c8a9-4732-bb86-a865358bd0c9" name="Changes" comment="Added Plane Editing Support! No backend coms yet!">
-      <change afterPath="$PROJECT_DIR$/assets/react/controllers/OCR/Queue.tsx" afterDir="false" />
+    <list default="true" id="1cf6b36a-c8a9-4732-bb86-a865358bd0c9" name="Changes" comment="Added Account Dashboard!!! Hooray!">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/react/controllers/Account/AccountDashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/react/controllers/Account/AccountDashboard.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/react/controllers/OCR/Cropper.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/react/controllers/OCR/Cropper.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/react/controllers/OCR/LogSpreadsheet.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/react/controllers/OCR/LogSpreadsheet.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/react/controllers/OCR/OCR.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/react/controllers/OCR/OCR.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/react/controllers/OCR/Queue.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/react/controllers/OCR/Queue.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,12 +36,12 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "luccadimario"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;luccadimario&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -214,7 +211,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Shell Script.Symfony Server.executor": "Run",
-    "git-widget-placeholder": "Lucca-Development",
+    "git-widget-placeholder": "main",
     "last_opened_file_path": "/Users/luccadimario/WebstormProjects/SE300-frontend/assets/react/controllers/MaintenanceDetails",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -375,6 +372,7 @@
     <MESSAGE value="Webpack and Symfony support files" />
     <MESSAGE value="Plane click support" />
     <MESSAGE value="Added Plane Editing Support! No backend coms yet!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Plane Editing Support! No backend coms yet!" />
+    <MESSAGE value="Added Account Dashboard!!! Hooray!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Account Dashboard!!! Hooray!" />
   </component>
 </project>

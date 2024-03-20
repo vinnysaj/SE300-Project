@@ -12,6 +12,7 @@ import { canvasPreview } from './canvasPreview'
 import { useDebounceEffect } from './useDebounceEffect'
 
 import 'react-image-crop/dist/ReactCrop.css'
+import {number} from "prop-types";
 
 
 function centerAspectCrop(
@@ -45,7 +46,15 @@ export default function Cropper() {
     const [scale, setScale] = useState(1)
     const [rotate, setRotate] = useState(0)
     const [aspect, setAspect] = useState<number | undefined>(undefined)
-    const [queueItems, setQueueItems] = useState<string[] | null>(["Item1", "Item2", "Item3"])
+    const [queueItems, setQueueItems] = useState<Blob[] | null>([])
+
+    const addItemToQueue = (item: Blob) => {
+        setQueueItems((prevQueue) => [...prevQueue, item]);
+    };
+    let i = 0;
+    const handleAddToQueue = (dataURL: Blob) => {
+        addItemToQueue(dataURL);
+    };
 
     function onSelectFile(e: React.ChangeEvent<HTMLInputElement>) {
         if (e.target.files && e.target.files.length > 0) {
@@ -67,6 +76,7 @@ export default function Cropper() {
 
 
     async function onSendCropClick() {
+
         const image = imgRef.current
         const previewCanvas = previewCanvasRef.current
         if (!image || !previewCanvas || !completedCrop) {
@@ -104,7 +114,19 @@ export default function Cropper() {
         const blob = await offscreen.convertToBlob({
             type: 'image/png',
         })
+        handleAddToQueue(blob);
+        /*const reader = new FileReader();
 
+        reader.onload = () => {
+            const dataURL = reader.result;
+            handleAddToQueue(dataURL);
+        };
+
+        reader.onerror = (error) => {
+            console.error("Error reading file:", error);
+        };
+
+        reader.readAsDataURL(blob);*/
 
 
     }
@@ -188,7 +210,9 @@ export default function Cropper() {
             )}
 
         </div>
-        <Queue listItems={queueItems}/>
+        <Queue listItems={queueItems} setListItems={setQueueItems}/>
     </>
     )
 }
+
+
