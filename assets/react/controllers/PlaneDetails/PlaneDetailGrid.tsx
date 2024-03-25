@@ -1,14 +1,11 @@
 import React, {ReactElement, useEffect, useState} from 'react';
 import axios from "axios";
-import {PlaneGridProps} from "./PlaneDetails";
 import MainInfoComponent from "./GridComponents/MainInfoComponent";
-import MainInfoEditComponent from "./GridComponents/MainInfoEditComponent";
-import {extendedPlaneDetailsProps} from "./PlaneDetails";
+import {PlaneDetailsProps} from "./PlaneDetails";
 
-const PlaneDetailGrid: React.FC<PlaneGridProps> = ({planeDetails, extendedPlaneDetails}) => {
+const PlaneDetailGrid: React.FC<PlaneDetailsProps> = ({planeDetails, editingStart}) => {
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
-    const [userData, setUserData] = useState<extendedPlaneDetailsProps | null>(null)
 
     useEffect(() => {
         if (isLoading) {
@@ -35,7 +32,7 @@ const PlaneDetailGrid: React.FC<PlaneGridProps> = ({planeDetails, extendedPlaneD
     }
 
     return (
-        <MainInfoEditComponent planeDetails={planeDetails} extendedPlaneDetails={extendedPlaneDetails} />
+        <></>
     );
 };
 
