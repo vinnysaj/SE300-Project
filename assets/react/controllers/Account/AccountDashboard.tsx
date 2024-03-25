@@ -2,10 +2,16 @@ import React, {ReactElement, useEffect, useRef, useState} from 'react';
 import axios from "axios";
 import {accountDetails} from "./AccountDetails";
 import formatPlaneDate from "../PlaneDetails/PlaneDetails"
+import {makeAuthCall} from "../AuthManager/AuthManager";
 
 export default function AccountDashboard(props: {accountDetailsProps: accountDetails}) {
     const [accountDetailsProps, setAccountDetailsProps] = useState(props.accountDetailsProps);
     const handleFile = (file: any) => {
+        let url = "https://api.boundlessflight.net/api/aircraft/update/coverphoto"
+        let data = {
+
+        }
+        let response = makeAuthCall(url, "POST", null);
         console.log("File Accepted");
     }
     function setProfilePicture(){
