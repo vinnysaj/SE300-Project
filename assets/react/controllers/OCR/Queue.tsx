@@ -14,7 +14,7 @@ export default function Queue(props: {listItems: Blob[] | null, setListItems: Re
             // Simulate sending data to the server
             console.log("Sending data to server:", data);
             const newData = {
-                "blob": "TEST BLOB",
+                "blob": "I am never undefined",
                 "handwritten": "True"
             }
             console.log(newData);

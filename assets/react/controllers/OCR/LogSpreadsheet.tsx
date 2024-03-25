@@ -8,23 +8,26 @@ export default function LogSpreadsheet() {
     const defaultColDef = useMemo(() => ({
         editable: true, // Enable editing on all cells
     }),[])
-    useEffect(() => {
-        fetch('https://www.ag-grid.com/example-assets/space-mission-data.json') // Fetch data from server
-            .then(result => result.json()) // Convert to JSON
-            .then(rowData => setRowData(rowData)); // Update state of `rowData`
-    }, [])
     const [rowData, setRowData] = useState([])
     const [colDefs, setColDefs] = useState([
-        { field: "mission",
+        { field: "Date"},
+        { field: "Time in service" },
+        { field: "Time since overhaul" },
+        { field: "Tach time" },
+        { field: "Description",
             cellEditor: 'agLargeTextCellEditor',
             cellEditorPopup: true, },
-        { field: "company" },
-        { field: "location" },
-        { field: "date" },
-        { field: "price" },
-        { field: "successful" },
-        { field: "rocket" }
     ]);
+    function addRow() {
+        const item: rowDataInterface = {
+            date: null,
+            timeInService: null,
+            timeSinceOverhaul: null,
+            tachTime: null,
+            description: null
+        }
+        setRowData((prevRowData) => [...prevRowData, item]);
+    }
     function printData() {
         console.log(rowData);
     }
@@ -38,4 +41,11 @@ export default function LogSpreadsheet() {
             />
         </div>
     );
+}
+export interface rowDataInterface {
+    date: string | null,
+    timeInService: number | null,
+    timeSinceOverhaul: number | null,
+    tachTime: number | null,
+    description: string | null,
 }
