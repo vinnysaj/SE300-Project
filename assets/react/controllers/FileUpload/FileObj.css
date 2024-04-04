@@ -1,0 +1,45 @@
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.grid-container {
+    gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto; /* Center horizontally */
+    max-width: 200px; /* Set the minimum width */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+
+}
+.App {
+    font-family: sans-serif;
+    text-align: center;
+}
+
+.griditemUI {
+    border: 2px solid #fff;
+}
+
+
+.grid-item {
+    position: relative; /* Ensure position for absolute positioning of file-box */
+}
+
+.file-box {
+    width: 100px; /* Adjust width as needed */
+    height: 100px; /* Adjust height as needed */
+}
+
+.file-preview {
+    max-width: 100%;
+    max-height: 75%; /* Adjust the percentage as needed */
+    object-fit: contain;
+}
+
+.file-name {
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

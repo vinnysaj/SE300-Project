@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react'
 import Queue from "./Queue";
+import {queueItem} from "./Queue";
 
 import ReactCrop, {
     centerCrop,
@@ -46,14 +47,19 @@ export default function Cropper() {
     const [scale, setScale] = useState(1)
     const [rotate, setRotate] = useState(0)
     const [aspect, setAspect] = useState<number | undefined>(undefined)
-    const [queueItems, setQueueItems] = useState<Blob[] | null>([])
+    const [queueItems, setQueueItems] = useState<queueItem[] | null>([])
 
-    const addItemToQueue = (item: Blob) => {
+    const addItemToQueue = (item: queueItem) => {
         setQueueItems((prevQueue) => [...prevQueue, item]);
     };
     let i = 0;
     const handleAddToQueue = (dataURL: Blob) => {
-        addItemToQueue(dataURL);
+        const addedQueue = {
+            blob: dataURL,
+            text: undefined,
+            id: queueItems[queueItems.length - 1] ? queueItems[queueItems.length - 1].id + 1 : 1
+        }
+        addItemToQueue(addedQueue);
     };
 
     function onSelectFile(e: React.ChangeEvent<HTMLInputElement>) {
@@ -115,18 +121,6 @@ export default function Cropper() {
             type: 'image/png',
         })
         handleAddToQueue(blob);
-        /*const reader = new FileReader();
-
-        reader.onload = () => {
-            const dataURL = reader.result;
-            handleAddToQueue(dataURL);
-        };
-
-        reader.onerror = (error) => {
-            console.error("Error reading file:", error);
-        };
-
-        reader.readAsDataURL(blob);*/
 
 
     }

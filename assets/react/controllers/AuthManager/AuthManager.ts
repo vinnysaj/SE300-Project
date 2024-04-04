@@ -28,6 +28,7 @@ export function clearStorage() {
 }
 
 export async function makeAuthCall(url: string, method: string, data?: any) {
+    console.log(data);
     let response = await axios({
         method: method,
         url: url,
