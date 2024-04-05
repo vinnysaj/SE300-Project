@@ -7,9 +7,17 @@ import DashboardGridAddElement from "../Dashboard/DashboardGridAddElement";
 import {makeAuthCall} from "../AuthManager/AuthManager";
 import {interactive} from "@material-tailwind/react/types/components/popover";
 import PlaneDetails from "../PlaneDetails/PlaneDetails";
+import AddPlaneModal, {NewPlaneData} from "./AddPlaneModal";
 
 const Dashboard: React.FC = () => {
     const [planeGridElements, setPlaneGridElements] = useState(null)
+    const [planeAddModalVisible, setPlaneAddModalVisible] = React.useState<boolean>(false);
+    const [refresh, setRefresh] = useState<number>(0);
+
+    function addPlaneClicked() {
+        setPlaneAddModalVisible(true);
+    }
+
     React.useEffect(() => {
         const getPlanesURL = "https://api.boundlessflight.net/api/user/get/assignedaircraft"
         let response = makeAuthCall(getPlanesURL, "GET", null);
@@ -19,7 +27,7 @@ const Dashboard: React.FC = () => {
             for (let i = 0; i < planeDataArray.length; i++) {
                 gridElements.push(<DashboardGridElement key={i} planeImgPath={"/images/test.jpg"} planeName={planeDataArray[i].reg} planeID={planeDataArray[i].id.toString()}></DashboardGridElement>)
             }
-            gridElements.push(<DashboardGridAddElement key={planeDataArray.length} addText="Add new" />)
+            gridElements.push(<DashboardGridAddElement key={planeDataArray.length + 1} addText="Add new" addClicked={addPlaneClicked} />)
             setPlaneGridElements(gridElements);
         }).catch((err) => {
             console.log(err);
@@ -31,20 +39,47 @@ const Dashboard: React.FC = () => {
                 alert("so be it. >:(")
             }
         });
-    }, []);
+    }, [refresh]);
+
+    async function saveNewPlane(newPlaneData:NewPlaneData) {
+        console.log(newPlaneData);
+        let response = await makeAuthCall("https://api.boundlessflight.net/api/user/add/assignedaircraft", "POST", newPlaneData);
+        if (response.status === 201) {
+            successfulPlaneAdd();
+        }
+    }
+
+    function successfulPlaneAdd() {
+        console.log("Successfully added a new plane!")
+        closeModal();
+        setRefresh(refresh + 1);
+    }
+
+    function errorPlaneAdd() {
+        alert("Error adding a new plane. Please try again later.")
+    }
+
+    function closeModal() {
+        setPlaneAddModalVisible(false);
+    }
 
     return (
-        <div className="h-full w-full">
-            <Navbar pageTitle={"Dashboard"} />
-            <NavbarHelper />
-            <div className="px-16 mt-8">
-                <DashboardGrid gridElements={planeGridElements} gridTitle="Your Planes" />
+        <>
+            <div className="h-full w-full">
+                <Navbar pageTitle={"Dashboard"}/>
+                <NavbarHelper/>
+                <div className="px-16 mt-8">
+                    <DashboardGrid gridElements={planeGridElements} gridTitle="Your Planes"/>
+                </div>
             </div>
-        </div>
+            { planeAddModalVisible ? (
+                <AddPlaneModal closeModal={closeModal} savePlane={saveNewPlane} />
+            ) : null }
+        </>
     );
 };
 
-interface PlaneData {
+export interface PlaneData {
     id: number;
     reg: string;
     active: boolean;

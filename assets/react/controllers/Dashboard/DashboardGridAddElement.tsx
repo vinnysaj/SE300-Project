@@ -3,8 +3,7 @@ import React, {ReactElement} from 'react';
 export default function (properties: DashboardGridElementProps):ReactElement {
     return (
         <div className="col-span-full md:col-span-1 w-full flex-grow">
-            <a className="bg-gray-50 px-1 pt-1 pb-1 drop-shadow-lg shadow-lg rounded-2xl flex flex-col items-center transition-transform hover:scale-102 duration-300 ease-in-out cursor-pointer"
-               href={"dashboard/plane/add"}>
+            <div onClick={properties.addClicked} className="bg-gray-50 px-1 pt-1 pb-1 drop-shadow-lg shadow-lg rounded-2xl flex flex-col items-center transition-transform hover:scale-102 duration-300 ease-in-out cursor-pointer">
                 <div className={"h-32 w-full rounded-xl bg-gray-200"}>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                          className="w-full h-full">
@@ -13,12 +12,12 @@ export default function (properties: DashboardGridElementProps):ReactElement {
                     </svg>
                 </div>
                 <div className="text-center text-lg mt-1 drop-shadow-xl">{properties.addText}</div>
-            </a>
+            </div>
         </div>
-    )
-        ;
+    );
 };
 
 interface DashboardGridElementProps {
-    addText: string
+    addText: string;
+    addClicked: () => void;
 }
