@@ -1,6 +1,5 @@
 import React, {ReactElement, useLayoutEffect, useState} from 'react';
 import ProfileMenu from './ProfileMenu';
-import {render} from "react-dom";
 
 export default function (properties: NavbarProps):ReactElement {
     const [homeEnabled, setHomeEnabled] = React.useState(true);
@@ -62,7 +61,7 @@ export default function (properties: NavbarProps):ReactElement {
                                     <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5"/>
                                 </svg>
                             </span>
-                            <span className={`ml-4 font-light md:slide-fade-hover ${isHovered ? "hovered" : ""}`}>
+                            <span className={`ml-4 font-light slide-fade-hover ${isHovered ? "hovered" : ""}`}>
                                 {renderRoutes()}
                             </span>
                         </span>
