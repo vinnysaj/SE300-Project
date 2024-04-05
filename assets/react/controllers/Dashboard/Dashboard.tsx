@@ -25,7 +25,7 @@ const Dashboard: React.FC = () => {
             let planeDataArray: PlaneData[] = res.data as PlaneData[];
             const gridElements:React.JSX.Element[] = [];
             for (let i = 0; i < planeDataArray.length; i++) {
-                gridElements.push(<DashboardGridElement key={i} planeImgPath={"/images/test.jpg"} planeName={planeDataArray[i].reg} planeID={planeDataArray[i].id.toString()}></DashboardGridElement>)
+                gridElements.push(<DashboardGridElement key={i} planeImgPath={"/images/test.jpg"} planeName={planeDataArray[i].friendly_name} planeID={planeDataArray[i].id.toString()}></DashboardGridElement>)
             }
             gridElements.push(<DashboardGridAddElement key={planeDataArray.length + 1} addText="Add new" addClicked={addPlaneClicked} />)
             setPlaneGridElements(gridElements);
@@ -81,7 +81,8 @@ const Dashboard: React.FC = () => {
 
 export interface PlaneData {
     id: number;
-    reg: string;
+    friendly_name: string;
+    tail: string;
     active: boolean;
     serial: string;
     icao: string;
