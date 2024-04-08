@@ -1,5 +1,4 @@
-import React, {ReactElement, useEffect, useState} from 'react';
-import axios from "axios";
+import React from 'react';
 
 const DashboardGrid: React.FC<DashboardGridProps> = ({gridTitle, gridElements}) => {
     return (

@@ -6,14 +6,24 @@ import NavbarHelper from "../Navbar/NavbarHelper";
 import DashboardGridAddElement from "../Dashboard/DashboardGridAddElement";
 import {makeAuthCall} from "../AuthManager/AuthManager";
 import AddPlaneModal, {NewPlaneData} from "./AddPlaneModal";
+import PlaneDetails from "./PlaneDetails/PlaneDetails";
 
 const Dashboard: React.FC = () => {
     const [planeGridElements, setPlaneGridElements] = useState(null)
     const [planeAddModalVisible, setPlaneAddModalVisible] = React.useState<boolean>(false);
     const [refresh, setRefresh] = useState<number>(0);
+    const [planeDetailData, setPlaneDetailData] = useState<PlaneData | null>(null);
 
     function addPlaneClicked() {
         setPlaneAddModalVisible(true);
+    }
+
+    function planeDetailClicked(planeData: PlaneData) {
+        setPlaneDetailData(planeData);
+    }
+
+    function planeDetailClosed() {
+        setPlaneDetailData(null);
     }
 
     React.useEffect(() => {
@@ -23,7 +33,7 @@ const Dashboard: React.FC = () => {
             let planeDataArray: PlaneData[] = res.data as PlaneData[];
             const gridElements:React.JSX.Element[] = [];
             for (let i = 0; i < planeDataArray.length; i++) {
-                gridElements.push(<DashboardGridElement key={i} planeImgPath={"/images/test.jpg"} planeName={planeDataArray[i].friendly_name} planeID={planeDataArray[i].id.toString()}></DashboardGridElement>)
+                gridElements.push(<DashboardGridElement key={i} planeData={planeDataArray[i]} planeClicked={planeDetailClicked}></DashboardGridElement>)
             }
             gridElements.push(<DashboardGridAddElement key={planeDataArray.length + 1} addText="Add new" addClicked={addPlaneClicked} />)
             setPlaneGridElements(gridElements);
@@ -66,11 +76,15 @@ const Dashboard: React.FC = () => {
             <div className="h-full w-full">
                 <Navbar pageTitle={"Dashboard"}/>
                 <NavbarHelper/>
-                <div className="px-16 mt-8">
-                    <DashboardGrid gridElements={planeGridElements} gridTitle="Your Planes"/>
-                </div>
+                { planeDetailData ? (
+                    <PlaneDetails planeData={planeDetailData} exitDetails={planeDetailClosed}/>
+                ) : (
+                    <div className="px-16 mt-8">
+                        <DashboardGrid gridElements={planeGridElements} gridTitle="Your Planes"/>
+                    </div>
+                )}
             </div>
-            { planeAddModalVisible ? (
+            { planeAddModalVisible && !planeDetailData ? (
                 <AddPlaneModal closeModal={closeModal} savePlane={saveNewPlane} />
             ) : null }
         </>

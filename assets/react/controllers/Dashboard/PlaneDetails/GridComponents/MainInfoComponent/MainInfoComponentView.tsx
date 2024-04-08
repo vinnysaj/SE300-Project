@@ -22,7 +22,7 @@ const MainInfoComponentView: React.FC<MainInfoComponentProps> = (props) => {
             </div>
             <div className="flex flex-col flex-1 mt-2">
                 <div className={"w-full h-64"}>
-                    <img src="FILL IN IMAGE SOURCE" alt="Plane Hero Image"
+                    <img src={props.planeDataDetailed.cover_file_path} alt="Plane Hero Image"
                          className="w-full h-full rounded-xl object-cover"/>
                 </div>
                 <div className={"w-full flex"}>

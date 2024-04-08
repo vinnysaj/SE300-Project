@@ -2,8 +2,6 @@ import React, {useState, useEffect} from 'react';
 import PlaneDetailGrid from "./PlaneDetailGrid";
 import {PlaneData} from "../Dashboard";
 import {makeAuthCall} from "../../AuthManager/AuthManager";
-import DashboardGridElement from "../DashboardGridElement";
-import DashboardGridAddElement from "../DashboardGridAddElement";
 const PlaneDetails: React.FC<PlaneDetailsProps> = (props) => {
     const [planeDataDetailed, setPlaneDataDetailed] = useState<PlaneDataDetailed | null>(null);
 
