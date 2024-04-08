@@ -5,8 +5,6 @@ import DashboardGridElement from "../Dashboard/DashboardGridElement";
 import NavbarHelper from "../Navbar/NavbarHelper";
 import DashboardGridAddElement from "../Dashboard/DashboardGridAddElement";
 import {makeAuthCall} from "../AuthManager/AuthManager";
-import {interactive} from "@material-tailwind/react/types/components/popover";
-import PlaneDetails from "../PlaneDetails/PlaneDetails";
 import AddPlaneModal, {NewPlaneData} from "./AddPlaneModal";
 
 const Dashboard: React.FC = () => {
@@ -94,8 +92,10 @@ export interface PlaneData {
     owner_id: any;
     createdAt: string;
     updatedAt: string;
-    icon_file_b64: string;
-    cover_file_b64: string;
+    first_flight_date: string;
+    cover_file_path: string;
+    mileage: number;
+    lastLogDate: string;
 }
 
 export default Dashboard;

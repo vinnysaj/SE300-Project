@@ -1,13 +1,12 @@
-import React, {ReactElement, useEffect, useState} from 'react';
-import axios from "axios";
-import {formatPlaneDate, PlaneDetailsProps, PlaneEditProps} from "../../PlaneDetails";
+import React from 'react';
+import {formatPlaneDate, PlaneDataDetailed} from "../../PlaneDetails";
 
-const MainInfoComponentEdit: React.FC<PlaneEditProps> = ({planeDetails: initialPlaneDetails, editingDone}) => {
+const MainInfoComponentEdit: React.FC<PlaneEditProps> = (props) => {
 
-    const [planeDetails, setPlaneDetails] = React.useState(initialPlaneDetails);
+    const [planeDetails, setPlaneDetails] = React.useState(props.planeDataDetailed);
 
     function saveEdits() {
-        editingDone(planeDetails);
+        props.editingDone(planeDetails);
     }
 
     const handlePlaneNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -15,7 +14,7 @@ const MainInfoComponentEdit: React.FC<PlaneEditProps> = ({planeDetails: initialP
     }
 
     const handlePlaneTailNumChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setPlaneDetails(prevDetails => ({ ...prevDetails, tailNumber: event.target.value }));
+        setPlaneDetails(prevDetails => ({ ...prevDetails, tail: event.target.value }));
     }
 
     const handlePlaneModelChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -23,7 +22,7 @@ const MainInfoComponentEdit: React.FC<PlaneEditProps> = ({planeDetails: initialP
     }
 
     const handleFirstFlightDateChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setPlaneDetails(prevDetails => ({ ...prevDetails, firstFlightDate: event.target.value }));
+        setPlaneDetails(prevDetails => ({ ...prevDetails, first_flight_date: event.target.value }));
     }
 
     const handleMileageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -36,7 +35,7 @@ const MainInfoComponentEdit: React.FC<PlaneEditProps> = ({planeDetails: initialP
                 <input
                     className={"text-2xl rounded-lg outline-1 outline-gray-200 bg-gray-100"}
                     type="text"
-                    value={planeDetails.name}
+                    value={planeDetails.friendly_name}
                     onChange={handlePlaneNameChange}
                     name="planeName">
                 </input>
@@ -49,7 +48,7 @@ const MainInfoComponentEdit: React.FC<PlaneEditProps> = ({planeDetails: initialP
             </div>
             <div className="flex flex-col flex-1 mt-2">
                 <div className={"w-full h-64"}>
-                    <img src={planeDetails.coverImgPath} alt="Plane Hero Image"
+                    <img src={planeDetails.cover_file_path} alt="Plane Hero Image"
                          className="w-full h-full rounded-xl object-cover"/>
                 </div>
                 <div className={"w-full flex"}>
@@ -59,7 +58,7 @@ const MainInfoComponentEdit: React.FC<PlaneEditProps> = ({planeDetails: initialP
                             <input
                                 className={"rounded-lg outline-none bg-gray-100 -mt-1"}
                                 type="name"
-                                value={planeDetails.tailNumber}
+                                value={planeDetails.tail}
                                 onChange={handlePlaneTailNumChange}
                                 name="tailNumber">
                             </input>
@@ -79,7 +78,7 @@ const MainInfoComponentEdit: React.FC<PlaneEditProps> = ({planeDetails: initialP
                             <input
                                 className={"rounded-lg outline-none bg-gray-100 -mt-1"}
                                 type="name"
-                                value={planeDetails.firstFlightDate}
+                                value={planeDetails.first_flight_date}
                                 onChange={handleFirstFlightDateChange}
                                 name="firstFlightDate">
                             </input>
@@ -98,7 +97,7 @@ const MainInfoComponentEdit: React.FC<PlaneEditProps> = ({planeDetails: initialP
                         </div>
                         <div className={"mt-2"}>
                             <div className="font-extrabold text-sm text-gray-500">MAINTENANCE DOCUMENTS</div>
-                            <div className={"text-gray-800 -mt-1"}>{planeDetails.documentCount}</div>
+                            <div className={"text-gray-800 -mt-1"}>{planeDetails.fileCount}</div>
                         </div>
                         <div className={"mt-2"}>
                         <div className="font-extrabold text-sm text-gray-500">LAST LOG DATE</div>
@@ -110,5 +109,10 @@ const MainInfoComponentEdit: React.FC<PlaneEditProps> = ({planeDetails: initialP
         </>
     );
 };
+
+export interface PlaneEditProps {
+    planeDataDetailed: PlaneDataDetailed;
+    editingDone: (newPlaneDataDetailed: PlaneDataDetailed) => void;
+}
 
 export default MainInfoComponentEdit;

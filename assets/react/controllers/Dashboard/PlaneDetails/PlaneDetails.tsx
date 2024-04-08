@@ -1,79 +1,66 @@
 import React, {useState, useEffect} from 'react';
-import Navbar from "../Navbar/Navbar";
-import NavbarHelper from "../Navbar/NavbarHelper";
 import PlaneDetailGrid from "./PlaneDetailGrid";
-const PlaneDetails: React.FC = () => {
-    const [planeDetails, setPlaneDetails] = useState<PlaneDetails | null>(null);
+import {PlaneData} from "../Dashboard";
+import {makeAuthCall} from "../../AuthManager/AuthManager";
+import DashboardGridElement from "../DashboardGridElement";
+import DashboardGridAddElement from "../DashboardGridAddElement";
+const PlaneDetails: React.FC<PlaneDetailsProps> = (props) => {
+    const [planeDataDetailed, setPlaneDataDetailed] = useState<PlaneDataDetailed | null>(null);
 
     useEffect(() => {
-        const fetchPlaneDetails = async () => {
-            // Simulated fetch operation
-            const simulatedData: PlaneDetails = {
-                active: false,
-                hours: 0,
-                icao: "Cant commit what I said",
-                owner_id: undefined,
-                plane_data: undefined,
-                reg: "1234",
-                regowner: "Lucca",
-                serial: "293840022",
-                coverImgPath: '/images/test.jpg',
-                id: '12345',
-                name: 'My Plane',
-                model: '747-400',
-                tailNumber: 'N12345',
-                type: 'Commercial',
-                mileage: 12345,
-                documentCount: 5,
-                firstFlightDate: '2023/02/29',
-                lastLogDate: '2023/02/2'
-            };
-            setPlaneDetails(simulatedData);
-        };
-
-        fetchPlaneDetails();
+        const getPlaneDetailsURL = "https://api.boundlessflight.net/api/user/get/assignedaircraft/details/" + props.planeData.id
+        let response = makeAuthCall(getPlaneDetailsURL, "GET", null);
+        response.then((res) => {
+            let planeDetails: PlaneDataDetailed = res.data as PlaneDataDetailed;
+            setPlaneDataDetailed(planeDetails);
+        }).catch((err) => {
+            console.log(err);
+            let result = confirm("Error fetching detailed plane data! Perhaps you are not authenticated? Press 'OK' to sign in.");
+            if (result) {
+                window.location.href = "https://auth.boundlessflight.net";
+            } else {
+                props.exitDetails();
+            }
+        });
     }, []);
 
+    function editingStart() {
+
+    }
+
     return (
-        <div className="h-full w-full">
-            <Navbar pageTitle={"Plane Dashboard"} />
-            <NavbarHelper />
-            <div className="px-16 mt-8">
-                {planeDetails ? <PlaneDetailGrid planeDetails={planeDetails}  editingStart={null}/> : <p>Loading...</p>}
-            </div>
+        <div className="px-16 mt-8">
+            {planeDataDetailed ? <PlaneDetailGrid planeDataDetailed={planeDataDetailed}/> : <p>Loading...</p>}
         </div>
     );
 };
 
-export interface PlaneDetails {
-    coverImgPath: string,
-    id: string,
-    name: string,
-    model: string,
-    tailNumber: string,
-    type: string,
-    mileage: number,
-    documentCount: number,
-    lastLogDate?: string,
-    firstFlightDate?: string,
-    reg: string,
-    active: boolean,
-    serial: string,
-    icao: string,
-    regowner: string,
-    hours: number,
-    plane_data: JSON,
-    owner_id: JSON,
-}
-
-export interface PlaneEditProps {
-    planeDetails: PlaneDetails,
-    editingDone: (newPlaneDetails: PlaneDetails) => void,
-}
 
 export interface PlaneDetailsProps {
-    planeDetails: PlaneDetails,
-    editingStart: () => void,
+    planeData: PlaneData;
+    exitDetails: () => void;
+}
+
+export interface PlaneDataDetailed extends PlaneData {
+    fileCount: number;
+    files: PlaneFile[];
+}
+
+export interface PlaneFile {
+    id: number;
+    file_uid: string;
+    b64: string;
+    user_id_uploaded: string;
+    timestamp: string;
+    type: string;
+    linked_aircraft_id: number;
+    hand_written: boolean;
+    title: string;
+    parsed_content: JSON;
+    description: string;
+    order: number;
+    createdAt: Date;
+    updatedAt: Date;
 }
 
 export default PlaneDetails;
