@@ -23,9 +23,9 @@ export default function (properties: NavbarProps):ReactElement {
         return routes.map((route, index) => {
             const isCurrentRoute = (route.path === '/home' && (location.pathname === '/home' || location.pathname === '/')) ||  route.path === location.pathname;
             if (isCurrentRoute) {
-                return <span key={route.path} className={`${index !== 0 ? 'ml-4' : ''} opacity-70 cursor-default`}>{route.title}</span>;
+                return <span key={index} className={`${index !== 0 ? 'ml-4' : ''} opacity-70 cursor-default`}>{route.title}</span>;
             }
-            return <a key={route.path} href={route.path} className={`underline ${index !== 0 ? 'ml-4' : ''}`}>{route.title}</a>;
+            return <a key={index} href={route.path} className={`underline ${index !== 0 ? 'ml-4' : ''}`}>{route.title}</a>;
         });
     }
 
