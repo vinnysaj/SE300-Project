@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from "react";
 import AccountDashboard from './AccountDashboard'
-import AccountDashboardEdit from './AccountDashboardEdit'
 import Navbar from "../Navbar/Navbar";
 import NavbarHelper from "../Navbar/NavbarHelper";
 export default function AccountDetails() {

@@ -1,7 +1,6 @@
 import React, {ReactElement, useEffect, useRef, useState} from 'react';
 import axios from "axios";
 import {accountDetails} from "./AccountDetails";
-import formatPlaneDate from "../PlaneDetails/PlaneDetails"
 import {makeAuthCall} from "../AuthManager/AuthManager";
 
 export default function AccountDashboard(props: {accountDetailsProps: accountDetails}) {
