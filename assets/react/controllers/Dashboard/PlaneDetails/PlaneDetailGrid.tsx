@@ -5,7 +5,7 @@ import MainInfoComponent from "./GridComponents/MainInfoComponent";
 const PlaneDetailGrid: React.FC<PlaneDetailGridProps> = (props) => {
 
     return (
-        <div className={"grid grid-cols-3 gap-4 mt-4"}>
+        <div className={"grid grid-cols-12 gap-3 mt-4"}>
             <MainInfoComponent planeDataDetailed={props.planeDataDetailed} />
         </div>
     );

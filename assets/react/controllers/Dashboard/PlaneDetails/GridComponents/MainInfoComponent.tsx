@@ -18,7 +18,7 @@ const MainInfoComponent: React.FC<PlaneDetailGridProps> = (props) => {
     }
 
     return (
-        <div className="w-1/2 rounded-2xl bg-gray-200 p-8 shadow-xl">
+        <div className="rounded-2xl bg-gray-200 p-8 shadow-xl col-span-full md:col-span-8">
             {isEditing ? (
                 <MainInfoComponentEdit planeDataDetailed={props.planeDataDetailed} editingDone={handleEditingDone} />
             ) : (
