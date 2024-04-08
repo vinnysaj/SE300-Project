@@ -121,6 +121,7 @@ export function calculateTimeSinceFirstFlight(date: string): string {
     return diffInYears === 1 ? `${diffInYears} year ago` : `${diffInYears} years ago`;
 }
 
-export function addCommasToNumber(num: number): string {
+export function addCommasToNumber(num?: number): string {
+    if (!num) return "0";
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
