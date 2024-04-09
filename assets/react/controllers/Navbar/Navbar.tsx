@@ -1,6 +1,5 @@
 import React, {ReactElement, useLayoutEffect, useState} from 'react';
 import ProfileMenu from './ProfileMenu';
-import {render} from "react-dom";
 
 export default function (properties: NavbarProps):ReactElement {
     const [homeEnabled, setHomeEnabled] = React.useState(true);
@@ -24,9 +23,9 @@ export default function (properties: NavbarProps):ReactElement {
         return routes.map((route, index) => {
             const isCurrentRoute = (route.path === '/home' && (location.pathname === '/home' || location.pathname === '/')) ||  route.path === location.pathname;
             if (isCurrentRoute) {
-                return <span key={route.path} className={`${index !== 0 ? 'ml-4' : ''} opacity-70 cursor-default`}>{route.title}</span>;
+                return <span key={index} className={`${index !== 0 ? 'ml-4' : ''} opacity-70 cursor-default`}>{route.title}</span>;
             }
-            return <a key={route.path} href={route.path} className={`underline ${index !== 0 ? 'ml-4' : ''}`}>{route.title}</a>;
+            return <a key={index} href={route.path} className={`underline ${index !== 0 ? 'ml-4' : ''}`}>{route.title}</a>;
         });
     }
 
@@ -62,7 +61,7 @@ export default function (properties: NavbarProps):ReactElement {
                                     <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5"/>
                                 </svg>
                             </span>
-                            <span className={`ml-4 font-light md:slide-fade-hover ${isHovered ? "hovered" : ""}`}>
+                            <span className={`ml-4 font-light slide-fade-hover ${isHovered ? "hovered" : ""}`}>
                                 {renderRoutes()}
                             </span>
                         </span>

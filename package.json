@@ -47,6 +47,7 @@
         "react-image-crop": "^11.0.5",
         "react-intersection-observer": "^9.8.0",
         "react-spreadsheet": "^0.9.4",
+        "redaxios": "^0.5.1",
         "scheduler": "^0.23.0",
         "three": "^0.161.0",
         "vanta": "^0.5.24"

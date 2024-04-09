@@ -1,7 +1,5 @@
-import React, {ReactElement, useEffect, useState} from 'react';
-import axios from "axios";
+import React, {useState} from 'react';
 import {accountDetails} from "./AccountDetails";
-import formatPlaneDate from "../PlaneDetails/PlaneDetails"
 
 export default function AccountDashboard(props: {accountDetailsProps: accountDetails}){
     const [accountDetailsProps, setAccountDetailsProps] = useState(props.accountDetailsProps);
