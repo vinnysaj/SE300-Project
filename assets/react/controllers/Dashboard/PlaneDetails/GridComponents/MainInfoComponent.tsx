@@ -2,8 +2,9 @@ import React, {useState} from 'react';
 import MainInfoComponentView from "./MainInfoComponent/MainInfoComponentView";
 import MainInfoComponentEdit from "./MainInfoComponent/MainInfoComponentEdit";
 import {PlaneDetailGridProps} from "../PlaneDetailGrid";
+import {PlaneDataDetailed} from "../PlaneDetails";
 
-const MainInfoComponent: React.FC<PlaneDetailGridProps> = (props) => {
+const MainInfoComponent: React.FC<MainInfoComponentProps> = (props) => {
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
     const [isEditing, setIsEditing] = useState(false);
@@ -27,5 +28,9 @@ const MainInfoComponent: React.FC<PlaneDetailGridProps> = (props) => {
         </div>
     );
 };
+
+export interface MainInfoComponentProps {
+    planeDataDetailed: PlaneDataDetailed;
+}
 
 export default MainInfoComponent;

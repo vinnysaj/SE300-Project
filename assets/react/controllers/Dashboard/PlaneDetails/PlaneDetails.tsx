@@ -25,10 +25,14 @@ const PlaneDetails: React.FC<PlaneDetailsProps> = (props) => {
     function editingStart() {
 
     }
+    
+    function addDocClicked(planeDataDetailed: PlaneDataDetailed) {
+        
+    }
 
     return (
         <div className="px-16 mt-8">
-            {planeDataDetailed ? <PlaneDetailGrid planeDataDetailed={planeDataDetailed}/> : <p>Loading...</p>}
+            {planeDataDetailed ? <PlaneDetailGrid planeDataDetailed={planeDataDetailed} addDocClicked={addDocClicked}/> : <p>Loading...</p>}
         </div>
     );
 };
