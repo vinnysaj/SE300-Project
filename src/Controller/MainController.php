@@ -41,6 +41,11 @@ class MainController extends AbstractController
         return $this->render('account.html.twig');
     }
 
+    #[Route('fileUpload', 'fileUpload')]
+        public function file_upload(Request $request): Response {
+            return $this->render('file_upload.html.twig');
+        }
+
     #[Route('dashboard/plane/{planeID}', 'planeInfo')]
     public function plane_info(Request $request, string $planeID): Response {
         // Check if user is authenticated to view this! For sprint 3 :D
