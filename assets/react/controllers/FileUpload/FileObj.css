@@ -18,8 +18,10 @@
     text-align: center;
 }
 
-.griditemUI {
-    border: 2px solid #fff;
+.no-select {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 
