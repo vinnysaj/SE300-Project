@@ -49,6 +49,7 @@
         "react-spreadsheet": "^0.9.4",
         "scheduler": "^0.23.0",
         "three": "^0.161.0",
+        "uuid": "^9.0.1",
         "vanta": "^0.5.24"
     }
 }

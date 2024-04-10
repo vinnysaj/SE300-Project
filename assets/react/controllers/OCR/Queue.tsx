@@ -28,7 +28,7 @@ export default function Queue(props: {
             let url = "https://api.boundlessflight.net/api/ocr";
             let dataURL: string | ArrayBuffer = await blobToBase64(data);
             dataURL = String(dataURL).split(",")[1];
-            let response = await axios.post(
+            /*let response = await axios.post(
                 "https://api.boundlessflight.net/api/ocr",
                 {
                     blob: dataURL,
@@ -39,7 +39,8 @@ export default function Queue(props: {
                         "Content-Type": "application/x-www-form-urlencoded",
                     },
                 }
-            );
+            );*/
+            const response = await makeAuthCall(url, "POST", {blob: dataURL, handwritten: "True"});
             console.log("Data sent successfully!");
             queueItem.text = response.data;
             setProcessedItems((prevItems) => [...prevItems, queueItem]);
