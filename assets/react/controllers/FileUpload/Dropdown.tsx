@@ -7,7 +7,7 @@ function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
 
-export default function Dropdown(props: {key: number, onViewOCR?: React.MouseEvent<HTMLElement>, onReplace?: React.MouseEvent<HTMLElement>, onDelete?: React.MouseEvent<HTMLElement>}) {
+export default function Dropdown() {
     return (
         <Menu as="div" className="relative inline-block text-left">
             <div>

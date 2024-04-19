@@ -44,25 +44,7 @@ export interface PlaneDetailsProps {
 }
 
 export interface PlaneDataDetailed extends PlaneData {
-    fileCount: number;
-    files: PlaneFile[];
-}
-
-export interface PlaneFile {
-    id: number;
-    file_uid: string;
-    b64: string;
-    user_id_uploaded: string;
-    timestamp: string;
-    type: string;
-    linked_aircraft_id: number;
-    hand_written: boolean;
-    title: string;
-    parsed_content: JSON;
-    description: string;
-    order: number;
-    createdAt: Date;
-    updatedAt: Date;
+    filesCount: number;
 }
 
 export default PlaneDetails;

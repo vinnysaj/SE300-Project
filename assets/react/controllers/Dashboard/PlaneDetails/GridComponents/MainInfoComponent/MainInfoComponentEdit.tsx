@@ -1,44 +1,72 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import {formatPlaneDate, PlaneDataDetailed} from "../../PlaneDetails";
+import {makeAuthCall} from "../../../../AuthManager/AuthManager";
+import {renderLastLogDate, renderMaintenanceDocuments, renderTailNumber} from "./MainInfoComponentView";
 
 const MainInfoComponentEdit: React.FC<PlaneEditProps> = (props) => {
 
+    const fileInputRef = useRef<HTMLInputElement>(null);
     const [planeDetails, setPlaneDetails] = React.useState(props.planeDataDetailed);
 
     function saveEdits() {
         props.editingDone(planeDetails);
     }
 
-    const handlePlaneNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setPlaneDetails(prevDetails => ({ ...prevDetails, name: event.target.value }));
+    function handleImageUpload(event: React.ChangeEvent<HTMLInputElement>) {
+        // prompt user for image upload and upload via axios base64 conversion
+
     }
 
-    const handlePlaneTailNumChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setPlaneDetails(prevDetails => ({ ...prevDetails, tail: event.target.value }));
+    const handleImageClick = () => {
+        fileInputRef.current?.click();
+    }
+
+    const handlePlaneNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setPlaneDetails(prevDetails => ({ ...prevDetails, name: event.target.value }));
     }
 
     const handlePlaneModelChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setPlaneDetails(prevDetails => ({ ...prevDetails, model: event.target.value }));
     }
 
-    const handleFirstFlightDateChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setPlaneDetails(prevDetails => ({ ...prevDetails, first_flight_date: event.target.value }));
+    const handleHoursChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setPlaneDetails(prevDetails => ({ ...prevDetails, hours: parseInt(event.target.value) }));
     }
 
     const handleMileageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setPlaneDetails(prevDetails => ({ ...prevDetails, mileage: parseInt(event.target.value) }));
     }
 
+    const handleDeletePlaneClick = () => {
+        let result = confirm("Are you sure you want to delete this plane?");
+        if (result) {
+            makeAuthCall("https://api.boundlessflight.net/api/user/delete/assignedaircraft/" + planeDetails.id, "DELETE", null)
+                .then(() => {
+                    alert("Plane deleted successfully!");
+                    window.location.href = "/dashboard";
+                }).catch((err) => {
+                    alert("Error deleting plane: " + err);
+                });
+        }
+    }
+
     return (
         <>
             <div className="flex justify-between">
-                <input
-                    className={"text-2xl rounded-lg outline-1 outline-gray-200 bg-gray-100"}
-                    type="text"
-                    value={planeDetails.friendly_name}
-                    onChange={handlePlaneNameChange}
-                    name="planeName">
-                </input>
+                <div className={"inline-block"}>
+                    <input
+                        className={"text-2xl rounded-lg outline-1 outline-gray-200 bg-gray-100 inline-block"}
+                        type="text"
+                        value={planeDetails.friendly_name}
+                        onChange={handlePlaneNameChange}
+                        name="planeName">
+                    </input>
+                    <div
+                        className={"bg-red-500 px-3 py-1 rounded-full shadow-md cursor-pointer hover:scale-110 transition-transform text-white inline-block ml-2"}
+                        onClick={handleDeletePlaneClick}>
+                        Delete Plane
+                    </div>
+                </div>
                 <button onClick={saveEdits}>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
                          stroke="currentColor" className="w-6 h-6">
@@ -47,21 +75,16 @@ const MainInfoComponentEdit: React.FC<PlaneEditProps> = (props) => {
                 </button>
             </div>
             <div className="flex flex-col flex-1 mt-2">
-                <div className={"w-full h-64"}>
-                    <img src={planeDetails.cover_file_path} alt="Plane Hero Image"
-                         className="w-full h-full rounded-xl object-cover"/>
+                <div className={"w-full h-96 cursor-pointer"} onClick={handleImageClick}>
+                    <img src={"https://api.boundlessflight.net/api/image/" + planeDetails.cover_file_b64} alt="Plane Hero Image"
+                         className="w-full h-full rounded-2xl object-cover"/>
+                    <input type={"file"} className={"hidden"} ref={fileInputRef} />
                 </div>
                 <div className={"w-full flex"}>
                     <div className={"flex-1"}>
                         <div className={"mt-2"}>
                             <div className="font-extrabold text-sm text-gray-500">TAIL NUMBER</div>
-                            <input
-                                className={"rounded-lg outline-none bg-gray-100 -mt-1"}
-                                type="name"
-                                value={planeDetails.tail}
-                                onChange={handlePlaneTailNumChange}
-                                name="tailNumber">
-                            </input>
+                            <div className={"text-gray-800 -mt-1"}>{renderTailNumber(props.planeDataDetailed)}</div>
                         </div>
                         <div className={"mt-2"}>
                             <div className="font-extrabold text-sm text-gray-500">MODEL</div>
@@ -74,14 +97,8 @@ const MainInfoComponentEdit: React.FC<PlaneEditProps> = (props) => {
                             </input>
                         </div>
                         <div className={"mt-2"}>
-                            <div className="font-extrabold text-sm text-gray-500">FIRST FLIGHT DATE</div>
-                            <input
-                                className={"rounded-lg outline-none bg-gray-100 -mt-1"}
-                                type="name"
-                                value={planeDetails.first_flight_date}
-                                onChange={handleFirstFlightDateChange}
-                                name="firstFlightDate">
-                            </input>
+                            <div className="font-extrabold text-sm text-gray-500">LAST LOG DATE</div>
+                            <div className={"text-gray-800 -mt-1"}>{renderLastLogDate(props.planeDataDetailed)}</div>
                         </div>
                     </div>
                     <div className={"flex-1"}>
@@ -96,12 +113,18 @@ const MainInfoComponentEdit: React.FC<PlaneEditProps> = (props) => {
                             </input>
                         </div>
                         <div className={"mt-2"}>
-                            <div className="font-extrabold text-sm text-gray-500">MAINTENANCE DOCUMENTS</div>
-                            <div className={"text-gray-800 -mt-1"}>{planeDetails.fileCount}</div>
+                            <div className="font-extrabold text-sm text-gray-500">HOURS</div>
+                            <input
+                                className={"rounded-lg outline-none bg-gray-100 -mt-1"}
+                                type="name"
+                                value={planeDetails.hours}
+                                onChange={handleHoursChange}
+                                name="mileage">
+                            </input>
                         </div>
                         <div className={"mt-2"}>
-                        <div className="font-extrabold text-sm text-gray-500">LAST LOG DATE</div>
-                            <div className={"text-gray-800 -mt-1"}>{formatPlaneDate(planeDetails.lastLogDate, true)}</div>
+                            <div className="font-extrabold text-sm text-gray-500">MAINTENANCE DOCUMENTS</div>
+                            <div className={"text-gray-800 -mt-1"}>{renderMaintenanceDocuments(props.planeDataDetailed)}</div>
                         </div>
                     </div>
                 </div>
