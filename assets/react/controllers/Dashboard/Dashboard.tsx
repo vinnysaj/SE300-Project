@@ -13,6 +13,7 @@ const Dashboard: React.FC = () => {
     const [planeAddModalVisible, setPlaneAddModalVisible] = React.useState<boolean>(false);
     const [refresh, setRefresh] = useState<number>(0);
     const [planeDetailData, setPlaneDetailData] = useState<PlaneData | null>(null);
+    
 
     function addPlaneClicked() {
         setPlaneAddModalVisible(true);
@@ -54,6 +55,9 @@ const Dashboard: React.FC = () => {
         let response = await makeAuthCall("https://api.boundlessflight.net/api/user/add/assignedaircraft", "POST", newPlaneData);
         if (response.status === 201) {
             successfulPlaneAdd();
+        }
+        else{
+            errorPlaneAdd();
         }
     }
 
