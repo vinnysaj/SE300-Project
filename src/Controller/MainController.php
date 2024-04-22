@@ -46,6 +46,16 @@ class MainController extends AbstractController
             return $this->render('file_upload.html.twig');
         }
 
+    #[Route('logSpreadsheet/{fileID}', 'logSpreadsheet')]
+            public function log_spreadsheet(Request $request, string $fileID): Response {
+                return $this->render('log_spreadsheet.twig', ['fileID' => $fileID]);
+            }
+    #[Route('ocrView/{fileID}', 'ocrView')]
+                public function ocr_view(Request $request, string $fileID): Response {
+                    return $this->render('ocr_view.twig', ['fileID' => $fileID]);
+                }
+
+
     #[Route('dashboard/plane/{planeID}', 'planeInfo')]
     public function plane_info(Request $request, string $planeID): Response {
         // Check if user is authenticated to view this! For sprint 3 :D

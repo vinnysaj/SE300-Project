@@ -7,7 +7,7 @@ function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
 
-export default function Dropdown(props: {key: number, onViewOCR?: React.MouseEvent<HTMLElement>, onReplace?: React.MouseEvent<HTMLElement>, onDelete?: React.MouseEvent<HTMLElement>}) {
+export default function Dropdown(props: {guiKey: string, onViewOCR, onReplace, onDelete, onInsertFront, onInsertBehind}) {
     return (
         <Menu as="div" className="relative inline-block text-left">
             <div>
@@ -35,6 +35,7 @@ export default function Dropdown(props: {key: number, onViewOCR?: React.MouseEve
                         <Menu.Item>
                             {({ active }) => (
                                 <button
+                                    onClick={() => (props.onViewOCR(props.guiKey))}
                                     className={classNames(
                                         active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                                         'block px-4 py-2 text-sm w-full text-left'
@@ -47,6 +48,7 @@ export default function Dropdown(props: {key: number, onViewOCR?: React.MouseEve
                         <Menu.Item>
                             {({ active }) => (
                                 <button
+                                    onClick={() => (props.onReplace(props.guiKey))}
                                     className={classNames(
                                         active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                                         'block px-4 py-2 text-sm w-full text-left'
@@ -59,6 +61,33 @@ export default function Dropdown(props: {key: number, onViewOCR?: React.MouseEve
                         <Menu.Item>
                             {({ active }) => (
                                 <button
+                                    onClick={() => (props.onInsertFront(props.guiKey))}
+                                    className={classNames(
+                                        active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                                        'block px-4 py-2 text-sm w-full text-left'
+                                    )}
+                                >
+                                    Insert Ahead
+                                </button>
+                            )}
+                        </Menu.Item>
+                        <Menu.Item>
+                            {({ active }) => (
+                                <button
+                                    onClick={() => (props.onInsertBehind(props.guiKey))}
+                                    className={classNames(
+                                        active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                                        'block px-4 py-2 text-sm w-full text-left'
+                                    )}
+                                >
+                                    Insert Behind
+                                </button>
+                            )}
+                        </Menu.Item>
+                        <Menu.Item>
+                            {({ active }) => (
+                                <button
+                                    onClick={() => (props.onDelete(props.guiKey))}
                                     className={classNames(
                                         active ? 'bg-gray-100 text-red-500' : 'text-red-600',
                                         'block px-4 py-2 text-sm w-full text-left'
