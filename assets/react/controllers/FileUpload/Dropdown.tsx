@@ -47,6 +47,18 @@ export default function Dropdown(props: {guiKey: string, onViewOCR, onReplace, o
                         </Menu.Item>
                         <Menu.Item>
                             {({ active }) => (
+                                <button onClick={() => (window.location.href = "https://127.0.0.1:8000/logSpreadsheet/1")}
+                                    className={classNames(
+                                        active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                                        'block px-4 py-2 text-sm w-full text-left'
+                                    )}
+                                >
+                                    View Log
+                                </button>
+                            )}
+                        </Menu.Item>
+                        <Menu.Item>
+                            {({ active }) => (
                                 <button
                                     onClick={() => (props.onReplace(props.guiKey))}
                                     className={classNames(

@@ -14,7 +14,7 @@ export default function FileView() {
             name: "FILE",
             mlogID: 4,
             type: "image",
-            preview: "https://picsum.photos/id/258/700"
+            preview: "https://127.0.0.1:8000/images/logbook.jpg"
         }
         setFile(newFileObject);
         setLoading(false)

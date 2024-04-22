@@ -113,7 +113,7 @@ export default function FileUpload(props: {id: number}) {
         //const response = await makeAuthCall("https://api.boundlessflight.net/api/file/upload", "POST", data)
     }
     const viewOCR = () => {
-        console.log("Redirecting to OCR window");
+        window.location.href = "https://127.0.0.1:8000/ocrView/1"
     }
     const handleFileChangeMultiple = (event: React.ChangeEvent<HTMLInputElement>) => {
         const fileList = event.target.files;
@@ -309,7 +309,7 @@ export default function FileUpload(props: {id: number}) {
     }
     return (
         <>
-        <Navbar pageTitle={"Plane Dashboard"} />
+        <Navbar pageTitle={"Plane Logs"} />
         <NavbarHelper />
         <div className="font-sans text-center bg-gray-200 rounded-2xl shadow-xl">
             <div className={"pt-4"}>

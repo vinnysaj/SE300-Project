@@ -27,7 +27,7 @@ const PlaneDetails: React.FC<PlaneDetailsProps> = (props) => {
     }
     
     function addDocClicked(planeDataDetailed: PlaneDataDetailed) {
-        
+        window.location.href = "https://127.0.0.1:8000/fileUpload"
     }
 
     return (
