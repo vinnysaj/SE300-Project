@@ -48,12 +48,12 @@ const About: React.FC = () => {
                     <div className="text-xl md:text-2xl lg:text-3xl font-medium text-gray-800 mt-4">We get the job done, so you can fly safely!
                     </div>
                     <div className="flex flex-wrap justify-center gap-4 mt-10">
-                        <AboutUserCard name={"Christopher Allen"} role={"Backend Developer, ADS-B Provider"} img_url={"#"}/>
+                        <AboutUserCard name={"Christopher Allen"} role={"Backend Developer, ADS-B Provider"} img_url={"/images/Chris.jpeg"}/>
                         <AboutUserCard name={"Lucca DiMario"} role={"Frontend Developer, OCR Processing Developer"}
-                                   img_url={"#"}/>
+                                   img_url={"/images/Lucca.jpg"}/>
                         <AboutUserCard name={"Vincent Sajkowski"} role={"Frontend Developer, Server Management"}
-                                   img_url={"#"}/>
-                        <AboutUserCard name={"Ryle Traub"} role={"Realtime ADS-B Developer"} img_url={"#"}/>
+                                   img_url={"/images/Vinny.jpg"}/>
+                        <AboutUserCard name={"Ryle Traub"} role={"Realtime ADS-B Developer"} img_url={"/images/Ryle.jpg"}/>
                     </div>
                 </div>
             </div>
@@ -77,20 +77,21 @@ const AboutCard: React.FC<AboutProps> = (props) => {
 
 const AboutUserCard: React.FC<AboutUserProps> = (props) => {
     return (
-        <div className="card w-64 text-center">
-            <div className="relative w-full h-40">
-                <div
-                    className="w-24 h-24 absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gray-200 rounded-full overflow-hidden">
-                    <img src={props.img_url} className="h-full w-full" alt={`${props.name}'s Profile`}/>
-                </div>
+        <div className="card w-64 text-center flex flex-col items-center">
+            <div className="w-32 h-32 mb-4 rounded-full overflow-hidden">
+                <img
+                    src={props.img_url}
+                    className="h-full w-full object-cover"
+                    alt={`${props.name}'s Profile`}
+                />
             </div>
             <div className="card-content">
-                <h2 className="text-2xl font-bold mt-4 mb-2">{props.name}</h2>
+                <h2 className="text-2xl font-bold mb-1">{props.name}</h2>
                 <p className="text-gray-600">{props.role}</p>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export interface AboutProps {
     title: string;

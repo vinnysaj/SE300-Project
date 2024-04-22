@@ -104,12 +104,11 @@ export interface PlaneData {
     hours: number;
     plane_data: any;
     owner_id: any;
-    createdAt: string;
-    updatedAt: string;
-    first_flight_date: string;
-    cover_file_path: string;
+    cover_file_b64: string;
     mileage: number;
     lastLogDate: string;
+    createdAt: string;
+    updatedAt: string;
 }
 
 export default Dashboard;

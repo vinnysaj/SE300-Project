@@ -11,11 +11,10 @@ const DashboardGridElement: React.FC<DashboardGridElementProps> = (props) => {
         <div className="col-span-full md:col-span-1 w-full flex-grow">
             <div onClick={handlePlaneClicked} className="bg-gray-50 px-1 pt-1 pb-1 drop-shadow-lg shadow-lg rounded-2xl flex flex-col items-center transition-transform hover:scale-102 duration-300 ease-in-out cursor-pointer">
                 <div className={"h-32 w-full"}>
-                    <img src={props.planeData.cover_file_path}
+                    <img src={"https://api.boundlessflight.net/api/image/" + props.planeData.cover_file_b64}
                          className="rounded-xl w-full h-32 object-cover"
                          alt={"Plane hero image"}/>
                 </div>
-
                 <div className="text-center text-lg mt-1 drop-shadow-xl">{props.planeData.friendly_name}</div>
             </div>
         </div>
